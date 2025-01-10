@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-gray-100;
+  }
+}
+
+.glassmorphism {
+  @apply bg-dark-light/80 backdrop-blur-lg border border-gray-800;
+}
+
+.gradient-border {
+  background: linear-gradient(to right, #3B82F6, #8B5CF6);
+  padding: 1px;
+}
+
+.gradient-border > * {
+  @apply bg-dark-light p-2;
+}
+
+.input-field {
+  @apply bg-dark-light border border-gray-700 rounded-lg px-4 py-2 text-gray-100 
+    focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none
+    placeholder:text-gray-500;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg 
+    transition-colors font-medium;
+}
+
+.btn-secondary {
+  @apply bg-dark-light hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-lg 
+    transition-colors border border-gray-700;
+}
+
+/* Sophisticated background animations */
+.hero-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.solutions-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 15s linear infinite;
+}
+
+.about-waves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(60deg, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+  animation: waveFlow 10s ease-in-out infinite;
+}
+
+.pricing-circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1), transparent 60%);
+  animation: circleBreath 12s ease-in-out infinite;
+}
+
+.contact-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  animation: dotsFloat 20s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+@keyframes waveFlow {
+  0%, 100% { transform: translateX(-5%) translateY(-5%); }
+  50% { transform: translateX(5%) translateY(5%); }
+}
+
+@keyframes circleBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes dotsFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-30px); }
+}
+
+/* Solution card animations */
+.solution-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.solution-card:hover::before {
+  left: 100%;
+}
+
+.solution-card:hover .card-icon {
+  transform: rotateY(180deg);
+}
+
+.card-icon {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Neural Network Background */
+.neural-network-bg {
+  background: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px) 0 0;
+  background-size: 30px 30px;
+  position: relative;
+}
+
+.neural-network-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
+  filter: blur(60px);
+  animation: neuralPulse 8s ease-in-out infinite;
+}
+
+.neural-network-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='2' fill='rgba(59, 130, 246, 0.2)' /%3E%3C/svg%3E");
+  animation: nodeFloat 20s linear infinite;
+}
+
+/* Geometric Pattern */
+.geometric-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: 
+    linear-gradient(45deg, rgba(59, 130, 246, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(45deg, transparent 75%, rgba(59, 130, 246, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(59, 130, 246, 0.05) 75%);
+  background-size: 100px 100px;
+}
+
+/* Animation Keyframes */
+@keyframes neuralPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes nodeFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-60px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Animation Utilities */
+.animate-float {
+  animation: float 15s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: neuralPulse 8s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 8s linear infinite;
+  position: relative;
+}
+
+.animate-gradient::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* Make content containers appear above backgrounds */
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
