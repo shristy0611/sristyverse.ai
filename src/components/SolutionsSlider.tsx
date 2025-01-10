@@ -1,18 +1,17 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import type { WorkspaceType } from '../types';
 
 interface Solution {
   icon: React.ElementType;
   title: string;
+  type: string;
   description: string;
-  type: WorkspaceType;
   details: string[];
 }
 
 interface SolutionsSliderProps {
   solutions: Solution[];
-  onSelect: (type: WorkspaceType) => void;
+  onSelect: (type: string) => void;
 }
 
 export const SolutionsSlider = ({ solutions, onSelect }: SolutionsSliderProps) => {
@@ -101,10 +100,6 @@ export const SolutionsSlider = ({ solutions, onSelect }: SolutionsSliderProps) =
                     </div>
                     <div className="mt-8 sm:mt-10 md:mt-12">
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelect(solution.type);
-                        }}
                         className={`inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-colors ${
                           isActive ? 'text-lg' : 'text-base'
                         }`}
